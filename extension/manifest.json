@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "对话工作台",
+  "version": "0.1.0",
+  "permissions": [
+    "storage",
+    "system.display"
+  ],
+  "background": {
+    "service_worker": "worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.deepseek.com/*"
+      ],
+      "js": [
+        "capture.js"
+      ]
+    }
+  ]
+}
