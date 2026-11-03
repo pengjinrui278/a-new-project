@@ -1,4 +1,10 @@
 const $=id=>document.getElementById(id), status=s=>$('status').textContent=s;
+const help=document.createElement('details');
+const helpTitle=document.createElement('summary');
+helpTitle.textContent='如何在 DeepSeek 里试用';
+const helpBody=document.createElement('p');
+helpBody.textContent='仅首次需要安装扩展：在 Edge 地址栏输入 edge://extensions，启用开发人员模式，加载项目里的 extension 文件夹。然后用原账号打开 DeepSeek 网页并刷新，选中一段回答即可展开追问或保存笔记。文章库会自动启动，修改后刷新本页即可查看。扩展代码更新时，请在扩展管理页点重新加载，再刷新 DeepSeek。';
+help.append(helpTitle,helpBody);$('status').after(help);
 const allowed=new Set('math semantics mrow mi mn mo mtext mfrac msqrt mroot msup msub msubsup mover munder munderover mtable mtr mtd mspace'.split(' '));
 function math(tree,depth=0){
  if(typeof tree==='string')return document.createTextNode(tree);
